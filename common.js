@@ -17,7 +17,7 @@
       case 4:return '四';
       case 5:return '五';
       case 6:return '六';
-      case 7:return '七';
+      case 7:return '日';
     }
   }
   return `${date.getFullYear()}年${format1(date.getMonth() + 1)}月${format1(date.getDate())}日  星期${format2(date.getDay())}`
