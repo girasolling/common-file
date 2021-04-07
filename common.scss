@@ -1,0 +1,13 @@
+/**
+ * 限制展示多行
+ *
+ * $lines 要展示的行数
+ */
+@mixin multiple-lines($lines) {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
