@@ -93,4 +93,4 @@ function foo(p1, p2, p3) {
 + public.scss中的通用样式必须添加注释；
 + 组件中的样式必须添加 scoped
 + 非特殊场景尽量少使用!important，如果使用须添加必要的注释。
-+ @mixin 函数必须添加注释，按照上面函数注释的方式添加。
++ @mixin 函数必须添加注释。
