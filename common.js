@@ -22,3 +22,26 @@
   }
   return `${date.getFullYear()}年${format1(date.getMonth() + 1)}月${format1(date.getDate())}日  星期${format2(date.getDay())}`
 }
+
+/**
+ * 本地图片转base64
+ *
+ * @param {String} src 要转换的图片路径
+ * @return {Promise} promise
+ */
+ function toBase64Url (src) {
+  return new Promise((resolve,reject)=>{
+    var img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.src = src;
+    img.onload = function() {
+      const canvas = document.createElement('CANVAS');
+      const ctx = canvas.getContext('2d');
+      canvas.height = this.naturalHeight;
+      canvas.width = this.naturalWidth;
+      ctx.drawImage(this, 0, 0);
+      const dataURL = canvas.toDataURL();
+      resolve(dataURL);
+    };
+  })
+}
