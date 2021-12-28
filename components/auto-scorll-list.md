@@ -30,21 +30,24 @@ scroll(list,contentEl,scrollEl,itemHeight,speed) {
       return
     }
     num = 1
+    // 边界情况处理
     if (scrollEl.offsetTop < -scrollEl.offsetHeight / 2) {
       scrollEl.style.top = '0px'
     } else if (scrollEl.offsetTop > 0) {
       scrollEl.style.top = -scrollEl.offsetHeight / 2 + 'px'
-    } //定义到边界的时候，实现无缝衔接
+    } 
+    // 通过控制top值实现滚动效果
     scrollEl.style.top = scrollEl.offsetTop - speed + 'px'
-    //定义图片的右边距随着速度不断不断增加，或减小，实现运动的效果
     this.ret = window.requestAnimationFrame(fnMove)
   }
   this.$nextTick(() => {
     this.ret = window.requestAnimationFrame(fnMove)
   })
+  // 鼠标悬浮时停止滚动
   content.onmouseover = () => {
     window.cancelAnimationFrame(this.ret)
   }
+  // 鼠标离开时继续滚动
   content.onmouseout = () => {
     this.ret = window.requestAnimationFrame(fnMove)
   }
